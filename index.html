@@ -105,6 +105,18 @@
     text-transform: uppercase;
     color: var(--muted);
   }
+  .alt-dl {
+    margin: 0.9rem 0 0;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  .alt-dl a {
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(20, 27, 36, 0.22);
+  }
+  .alt-dl a:hover { border-bottom-color: var(--accent); }
 
   .hero-visual {
     margin: 2.25rem auto 0;
@@ -195,8 +207,10 @@
     <section class="hero wrap">
       <h1 class="brand">LFW LARCH<span>Luftfederwaage</span></h1>
       <p class="lede">Die aktuelle App direkt aufs Handy laden – ohne Play Store.</p>
-      <a class="cta" href="https://github.com/w-larch/meineapp/releases/latest/download/result.apk">App installieren</a>
+      <a class="cta" id="btnInstall" href="LFW.apk" download="LFW_V_3.4.14.apk" type="application/vnd.android.package-archive">App installieren</a>
       <p class="version">Version V_3.4.14</p>
+      <p class="alt-dl"><a href="LFW.apk" download="LFW_V_3.4.14.apk">Direkter APK-Download</a>
+        · <a href="https://github.com/w-larch/meineapp/releases/download/V1.0/result.apk">GitHub-Release</a></p>
       <div class="hero-visual">
         <img src="v2.png" alt="LFW LARCH App – Waagenanzeige LKW und Anhänger" width="280" height="498">
       </div>
@@ -204,7 +218,7 @@
 
     <section class="section wrap">
       <h2>Installation</h2>
-      <p class="hint">Wenn Android die Installation blockiert: in den Einstellungen „Unbekannte Apps“ bzw. Installation aus dieser Quelle erlauben, danach erneut tippen.</p>
+      <p class="hint">Nach dem Download die APK in der Benachrichtigung oder unter „Downloads“ öffnen. Wenn Android blockiert: „Unbekannte Apps“ / Installation aus dem Browser erlauben, dann erneut öffnen. Der Button lädt die Datei direkt von dieser Seite (nicht über GitHub-Umleitung).</p>
     </section>
 
     <section class="section wrap">
