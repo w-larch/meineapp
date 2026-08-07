@@ -1,46 +1,229 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LFW_V2</title>
+<title>LFW LARCH – App installieren</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #141b24;
+    --muted: #5a6573;
+    --paper: #eef1f5;
+    --panel: rgba(255, 255, 255, 0.72);
+    --line: rgba(20, 27, 36, 0.12);
+    --accent: #d97706;
+    --accent-deep: #b45309;
+    --lilac: #7c6bb5;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    min-height: 100vh;
+    color: var(--ink);
+    font-family: "Manrope", sans-serif;
+    background:
+      radial-gradient(ellipse 90% 60% at 10% -10%, rgba(124, 107, 181, 0.22), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 100% 0%, rgba(217, 119, 6, 0.16), transparent 50%),
+      linear-gradient(165deg, #f7f8fb 0%, #e8ecf2 48%, #dde4ee 100%);
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    width: min(720px, calc(100% - 2.5rem));
+    margin: 0 auto;
+  }
+
+  /* —— Hero —— */
+  .hero {
+    min-height: 100svh;
+    display: grid;
+    align-content: center;
+    padding: 2.5rem 0 3rem;
+    text-align: center;
+  }
+
+  .brand {
+    margin: 0;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.6rem, 9vw, 4.4rem);
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    color: var(--ink);
+  }
+  .brand span {
+    display: block;
+    font-size: 0.42em;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lilac);
+    margin-top: 0.55rem;
+  }
+
+  .lede {
+    margin: 1.25rem auto 0;
+    max-width: 22rem;
+    font-size: 1.05rem;
+    line-height: 1.45;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.75rem;
+    padding: 0.95rem 1.8rem;
+    border-radius: 0.55rem;
+    background: linear-gradient(180deg, #f59e0b 0%, var(--accent) 55%, var(--accent-deep) 100%);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+    box-shadow: 0 10px 24px rgba(180, 83, 9, 0.28);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(180, 83, 9, 0.34);
+  }
+  .cta:active { transform: translateY(0); }
+
+  .version {
+    margin: 0.85rem 0 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-visual {
+    margin: 2.25rem auto 0;
+    width: min(280px, 72vw);
+    filter: drop-shadow(0 28px 40px rgba(20, 27, 36, 0.28));
+    animation: rise 0.9s ease-out both;
+  }
+  .hero-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1.1rem;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .brand { animation: rise 0.7s ease-out both; }
+  .lede { animation: rise 0.75s 0.08s ease-out both; }
+  .cta, .version { animation: rise 0.8s 0.14s ease-out both; }
+
+  /* —— Below fold —— */
+  .section {
+    padding: 2.75rem 0 1rem;
+    border-top: 1px solid var(--line);
+  }
+  .section h2 {
+    margin: 0 0 0.85rem;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
+  }
+  .section p, .section li {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+  .section ul {
+    margin: 0.75rem 0 0;
+    padding-left: 1.15rem;
+  }
+  .section li + li { margin-top: 0.35rem; }
+  .hint {
+    padding: 1rem 1.15rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 0.65rem;
+    backdrop-filter: blur(8px);
+  }
+
+  .footer {
+    padding: 2.5rem 0 3.5rem;
+    text-align: center;
+    border-top: 1px solid var(--line);
+    margin-top: 2rem;
+  }
+  .footer a {
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(20, 27, 36, 0.25);
+  }
+  .footer a:hover { border-bottom-color: var(--accent); }
+  .footer .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    justify-content: center;
+  }
+  .footer .copy {
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .brand, .lede, .cta, .version, .hero-visual { animation: none; }
+    .cta { transition: none; }
+  }
+</style>
 </head>
+<body>
+  <main>
+    <section class="hero wrap">
+      <h1 class="brand">LFW LARCH<span>Luftfederwaage</span></h1>
+      <p class="lede">Die aktuelle App direkt aufs Handy laden – ohne Play Store.</p>
+      <a class="cta" href="https://github.com/w-larch/meineapp/releases/latest/download/result.apk">App installieren</a>
+      <p class="version">Version V_3.4.14</p>
+      <div class="hero-visual">
+        <img src="v2.png" alt="LFW LARCH App – Waagenanzeige LKW und Anhänger" width="280" height="498">
+      </div>
+    </section>
 
-<body style="font-family:Arial;text-align:center;margin-top:40px;">
+    <section class="section wrap">
+      <h2>Installation</h2>
+      <p class="hint">Wenn Android die Installation blockiert: in den Einstellungen „Unbekannte Apps“ bzw. Installation aus dieser Quelle erlauben, danach erneut tippen.</p>
+    </section>
 
-<h1>LFW_V2</h1>
-<p>Installiere die neueste Version V_3.4.14</p>
+    <section class="section wrap">
+      <h2>Neu in V_3.4.14</h2>
+      <p>Update vom 07.08.2026 – Safe-Loc Speichern:</p>
+      <ul>
+        <li>Anhänger-Kennzeichen nur bei wirklich verbundenem Anhänger</li>
+        <li>Labels und Eingabefelder korrigiert (Kunde + LKW wieder sichtbar)</li>
+        <li>Speicher-Panel erscheint erst nach „Safe Loc.“</li>
+      </ul>
+    </section>
 
-<a href="https://github.com/w-larch/meineapp/releases/latest/download/result.apk"
-style="font-size:24px;display:block;margin-bottom:20px;">
-👉 App installieren
-</a>
-
-<p style="margin-top:40px;font-size:17px;">
-Falls Installation blockiert wird 
-  → Unbekannte Apps erlauben
-  --------------------------------------
-Update 07.08.2026 (V_3.4.14)
-
-Safe-Loc Speichern:
-- Anhänger-Kennzeichen nur bei wirklich verbundenem Anhänger.
-- Labels/Eingabefelder korrigiert (Kunde + LKW wieder sichtbar).
-- Speicher-Panel erscheint erst nach „Safe Loc.“ (nicht mehr als Designer-Default).
-</p>
-
-<!-- Bild -->
-<img src="v2.png" 
-style="max-width:80%;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.2);margin-top:20px;">
-
-<!-- Website -->
-<p style="margin-top:20px;font-size:18px;">
-🌐 <a href="https://www.luftfederwaage.at">www.luftfederwaage.at</a>
-</p>
-
-<!-- Email -->
-<p style="font-size:18px;">
-✉️ <a href="mailto:l.larch@luftfederwaage.at">l.larch@luftfederwaage.at</a>
-</p>
-
-
+    <footer class="footer wrap">
+      <div class="links">
+        <a href="https://www.luftfederwaage.at">www.luftfederwaage.at</a>
+        <a href="mailto:l.larch@luftfederwaage.at">l.larch@luftfederwaage.at</a>
+      </div>
+      <p class="copy">LFW Larch · Feld-App Install</p>
+    </footer>
+  </main>
 </body>
 </html>
